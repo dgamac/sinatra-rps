@@ -11,10 +11,41 @@ get ("/rock") do
   moves = ["rock", "paper", "scissors"]
 
   @comp_move = moves.sample
+  @our_move = "rock"
 
   if @comp_move == "rock"
     @outcome = "tied"
   elsif @comp_move == "paper"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+  end
+  erb(:zebra)
+end
+get ("/paper") do
+  moves = ["rock", "paper", "scissors"]
+
+  @comp_move = moves.sample
+  @our_move = "paper"
+
+  if @comp_move == "paper"
+    @outcome = "tied"
+  elsif @comp_move == "scissors"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+  end
+  erb(:zebra)
+end
+get ("/scissors") do
+  moves = ["rock", "paper", "scissors"]
+
+  @comp_move = moves.sample
+  @our_move = "scissors"
+
+  if @comp_move == "scissors"
+    @outcome = "tied"
+  elsif @comp_move == "rock"
     @outcome = "lost"
   else
     @outcome = "won"
